@@ -114,104 +114,194 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Experience */}
-      <section id="experience" className="min-h-screen flex items-center justify-center px-6 bg-neutral-950">
-        <div className="max-w-5xl w-full">
-          <h2 className="text-5xl font-bold text-center mb-12">Experience</h2>
+{/* Experience */}
+<section id="experience" className="min-h-screen flex items-center justify-center px-6 bg-neutral-950">
+  <div className="max-w-5xl w-full">
+    <h2 className="text-5xl font-bold text-center mb-12">Experience</h2>
 
-          <div className="space-y-6">
-            <a
-              href="https://drive.google.com/file/d/1FrLgQYLp9oNN3MQ44iOqE3RH78Xt96xP/view"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block border border-gray-800 rounded-2xl p-6 bg-black hover:bg-gray-950 transition"
-            >
-              <h3 className="text-2xl font-semibold">App Tester Intern</h3>
-              <p className="text-gray-400 mt-1">Boron Digital Pvt. Ltd. • 2024</p>
-              <ul className="mt-4 text-gray-300 list-disc list-inside space-y-2">
-                <li>Tested Android applications to identify bugs and performance issues.</li>
-                <li>Reported and documented issues to improve app reliability.</li>
-                <li>Worked with the team to improve user experience and functionality.</li>
-              </ul>
-            </a>
+    <div className="space-y-6">
 
-            <a
-              href="https://drive.google.com/file/d/1xHVws6pN2OJeisrqvTEpiwBvZLo2hFvHUJLAdg21E/view"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block border border-gray-800 rounded-2xl p-6 bg-black hover:bg-gray-950 transition"
-            >
-              <h3 className="text-2xl font-semibold">Intern</h3>
-              <p className="text-gray-400 mt-1">Marcello Tech • 2024</p>
-              <ul className="mt-4 text-gray-300 list-disc list-inside space-y-2">
-                <li>Worked on real-world tasks and gained hands-on industry exposure.</li>
-                <li>Collaborated with team members on project-based work.</li>
-                <li>Developed problem-solving and technical skills in a professional environment.</li>
-              </ul>
-            </a>
+      <a
+        href="https://drive.google.com/file/d/1FrLgQYLp9oNN3MQ44iOqE3RH78Xt96xP/view"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block border border-gray-800 rounded-2xl p-6 bg-black hover:bg-gray-950 transition"
+      >
+        <h3 className="text-2xl font-semibold">App Tester Intern</h3>
+        <p className="text-gray-400 mt-1">Boron Digital Pvt. Ltd. • 2024</p>
+
+        <ul className="mt-4 text-gray-300 list-disc list-inside space-y-2">
+          <li>Tested Android applications to identify bugs and performance issues.</li>
+          <li>Reported and documented issues to improve app reliability.</li>
+          <li>Worked with the team to enhance user experience and functionality.</li>
+        </ul>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+    {/* Projects */}
+<section id="projects" className="min-h-screen flex items-center justify-center px-6 bg-zinc-950">
+  <div className="max-w-4xl w-full">
+    <h2 className="text-5xl font-bold text-center mb-16">Projects</h2>
+
+    <div className="relative border-l border-gray-800 space-y-16 pl-6">
+
+      <div className="relative">
+        <span className="absolute -left-3 top-2 w-3 h-3 bg-white rounded-full"></span>
+
+        <a
+          href="https://github.com/swastikgarg11/fruit-image-classifier"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block border border-gray-800 rounded-2xl p-8 bg-black hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(255,255,255,0.08)] transition"
+        >
+          <h3 className="text-2xl font-semibold">AI Fruit Classifier</h3>
+
+          <p className="text-gray-400 mt-4">
+            Built a Convolutional Neural Network using TensorFlow to classify multiple fruit categories with high accuracy.
+          </p>
+
+          <p className="text-sm text-gray-500 mt-4">
+            Tech: TensorFlow, Python, CNN
+          </p>
+
+          <div className="mt-6 flex gap-3">
+            <span className="px-4 py-2 rounded-full bg-white text-black text-sm font-medium">
+              View Code
+            </span>
+            <span className="px-4 py-2 rounded-full border border-gray-700 text-sm">
+              GitHub Repo
+            </span>
           </div>
-        </div>
-      </section>
+        </a>
+      </div>
 
-      {/* Projects */}
-      <section id="projects" className="min-h-screen flex items-center justify-center px-6 bg-zinc-950">
-        <div className="max-w-6xl w-full">
-          <h2 className="text-5xl font-bold text-center mb-12">Projects</h2>
+      <div className="relative">
+        <span className="absolute -left-3 top-2 w-3 h-3 bg-white rounded-full"></span>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            <a
-              href="https://github.com/swastikgarg11/fruit-image-classifier"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border border-gray-800 rounded-2xl p-8 bg-black hover:-translate-y-2 transition"
-            >
-              <h3 className="text-2xl font-semibold">AI Fruit Classifier</h3>
-              <p className="text-gray-400 mt-4">
-                CNN model using TensorFlow for multi-class fruit image classification.
-              </p>
-            </a>
+        <a
+          href="https://github.com/swastikgarg11/currency-note-detector"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block border border-gray-800 rounded-2xl p-8 bg-black hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(255,255,255,0.08)] transition"
+        >
+          <h3 className="text-2xl font-semibold">Currency Note Detector</h3>
 
-            <a
-              href="https://github.com/swastikgarg11/currency-note-detector"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border border-gray-800 rounded-2xl p-8 bg-black hover:-translate-y-2 transition"
-            >
-              <h3 className="text-2xl font-semibold">Currency Note Detector</h3>
-              <p className="text-gray-400 mt-4">
-                AI model to detect Indian currency notes using image processing.
-              </p>
-            </a>
+          <p className="text-gray-400 mt-4">
+            Developed an AI-based system to detect Indian currency notes using image processing and computer vision techniques.
+          </p>
+
+          <p className="text-sm text-gray-500 mt-4">
+            Tech: OpenCV, Python, Image Processing
+          </p>
+
+          <div className="mt-6 flex gap-3">
+            <span className="px-4 py-2 rounded-full bg-white text-black text-sm font-medium">
+              View Code
+            </span>
+            <span className="px-4 py-2 rounded-full border border-gray-700 text-sm">
+              GitHub Repo
+            </span>
           </div>
-        </div>
-      </section>
+        </a>
+      </div>
 
-      {/* Certificates */}
-      <section id="certificates" className="min-h-screen flex items-center justify-center px-6 bg-neutral-950">
-        <div className="max-w-6xl w-full">
-          <h2 className="text-5xl font-bold text-center mb-12">Certifications</h2>
+    </div>
+  </div>
+</section>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {[
-              ["SAP Generative AI", "https://www.credly.com/badges/7f7144eb-dc45-42bb-af67-dde8142949ec/public_url"],
-              ["SAP Data Analyst", "https://www.credly.com/badges/e3119213-7153-4c14-8a81-7a935be2b7e9/public_url"],
-              ["AWS Generative AI", "https://www.credly.com/badges/ec1e81a4-9495-4011-a692-0df49fee4989"],
-              ["Networking Basics - Cisco", "https://www.credly.com/badges/544c82c7-ab9a-4bd1-91c2-0a1bbd9817dd/public_url"],
-            ].map(([title, link]) => (
-              <a
-                key={title}
-                href={link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border border-gray-800 rounded-2xl p-6 bg-black hover:bg-gray-950 transition"
-              >
-                <h3 className="text-xl font-semibold">{title}</h3>
-                <p className="text-gray-400 mt-2">Verified Credential</p>
-              </a>
-            ))}
+{/* Certificates */}
+<section id="certificates" className="min-h-screen flex items-center justify-center px-6 bg-neutral-950">
+  <div className="max-w-4xl w-full">
+    <h2 className="text-5xl font-bold text-center mb-16">Certifications</h2>
+
+    <div className="relative border-l border-gray-800 space-y-16 pl-6">
+
+      <div className="relative">
+        <span className="absolute -left-3 top-2 w-3 h-3 bg-white rounded-full"></span>
+
+        <a
+          href="https://www.credly.com/badges/7f7144eb-dc45-42bb-af67-dde8142949ec/public_url"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block border border-gray-800 rounded-2xl p-6 bg-black hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(255,255,255,0.08)] transition"
+        >
+          <h3 className="text-xl font-semibold">SAP Generative AI</h3>
+          <p className="text-gray-400 mt-2">Issued by SAP • Verified Credential</p>
+
+          <div className="mt-5">
+            <span className="px-4 py-2 rounded-full bg-white text-black text-sm font-medium">
+              View Credential
+            </span>
           </div>
-        </div>
-      </section>
+        </a>
+      </div>
+
+      <div className="relative">
+        <span className="absolute -left-3 top-2 w-3 h-3 bg-white rounded-full"></span>
+
+        <a
+          href="https://www.credly.com/badges/e3119213-7153-4c14-8a81-7a935be2b7e9/public_url"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block border border-gray-800 rounded-2xl p-6 bg-black hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(255,255,255,0.08)] transition"
+        >
+          <h3 className="text-xl font-semibold">SAP Data Analyst</h3>
+          <p className="text-gray-400 mt-2">Issued by SAP • Verified Credential</p>
+
+          <div className="mt-5">
+            <span className="px-4 py-2 rounded-full bg-white text-black text-sm font-medium">
+              View Credential
+            </span>
+          </div>
+        </a>
+      </div>
+
+      <div className="relative">
+        <span className="absolute -left-3 top-2 w-3 h-3 bg-white rounded-full"></span>
+
+        <a
+          href="https://www.credly.com/badges/ec1e81a4-9495-4011-a692-0df49fee4989"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block border border-gray-800 rounded-2xl p-6 bg-black hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(255,255,255,0.08)] transition"
+        >
+          <h3 className="text-xl font-semibold">AWS Generative AI</h3>
+          <p className="text-gray-400 mt-2">Issued by AWS • Verified Credential</p>
+
+          <div className="mt-5">
+            <span className="px-4 py-2 rounded-full bg-white text-black text-sm font-medium">
+              View Credential
+            </span>
+          </div>
+        </a>
+      </div>
+
+      <div className="relative">
+        <span className="absolute -left-3 top-2 w-3 h-3 bg-white rounded-full"></span>
+
+        <a
+          href="https://www.credly.com/badges/544c82c7-ab9a-4bd1-91c2-0a1bbd9817dd/public_url"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block border border-gray-800 rounded-2xl p-6 bg-black hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(255,255,255,0.08)] transition"
+        >
+          <h3 className="text-xl font-semibold">Cisco Networking Basics</h3>
+          <p className="text-gray-400 mt-2">Issued by Cisco • Verified Credential</p>
+
+          <div className="mt-5">
+            <span className="px-4 py-2 rounded-full bg-white text-black text-sm font-medium">
+              View Credential
+            </span>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* Contact */}
       <section id="contact" className="min-h-screen flex items-center justify-center px-6 bg-black">
