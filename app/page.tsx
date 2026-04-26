@@ -1,109 +1,145 @@
 "use client";
 
+import { motion } from "framer-motion";
+import { TypeAnimation } from "react-type-animation";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 50 },
+  show: { opacity: 1, y: 0 },
+};
+
+const skills = [
+  ["Languages", ["Python", "Java", "C++"]],
+  ["Libraries", ["TensorFlow", "Keras", "OpenCV", "NumPy", "Matplotlib"]],
+  ["Concepts", ["CNN", "Machine Learning", "Computer Vision", "Image Processing"]],
+  ["Tools", ["Git", "VS Code", "PyCharm", "Google Colab"]],
+];
+
+const certificates = [
+  ["SAP Generative AI", "Issued by SAP", "https://www.credly.com/badges/7f7144eb-dc45-42bb-af67-dde8142949ec/public_url"],
+  ["SAP Data Analyst", "Issued by SAP", "https://www.credly.com/badges/e3119213-7153-4c14-8a81-7a935be2b7e9/public_url"],
+  ["AWS Generative AI", "Issued by AWS", "https://www.credly.com/badges/ec1e81a4-9495-4011-a692-0df49fee4989"],
+  ["Cisco Networking Basics", "Issued by Cisco", "https://www.credly.com/badges/544c82c7-ab9a-4bd1-91c2-0a1bbd9817dd/public_url"],
+];
+
+function SectionTitle({ title, subtitle }: { title: string; subtitle?: string }) {
+  return (
+    <div className="text-center mb-14">
+      <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-white via-blue-200 to-purple-300 bg-clip-text text-transparent">
+        {title}
+      </h2>
+      {subtitle && <p className="text-gray-400 mt-4">{subtitle}</p>}
+    </div>
+  );
+}
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-black text-white overflow-hidden relative">
+      <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.22),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.22),transparent_32%)]" />
+      <div className="fixed inset-0 -z-10 bg-[linear-gradient(to_right,rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:70px_70px]" />
 
-      {/* Navbar */}
-      <nav className="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-gray-800">
+      <nav className="fixed top-0 left-0 w-full z-50 bg-black/60 backdrop-blur-xl border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <h1 className="text-xl font-bold">SG.</h1>
+          <a href="#home" className="text-2xl font-black tracking-tight">
+            SG<span className="text-blue-400">.</span>
+          </a>
 
           <div className="hidden md:flex gap-8 text-gray-400 text-sm">
-            <a href="#home" className="hover:text-white">Home</a>
-            <a href="#about" className="hover:text-white">About</a>
-            <a href="#skills" className="hover:text-white">Skills</a>
-            <a href="#experience" className="hover:text-white">Experience</a>
-            <a href="#projects" className="hover:text-white">Projects</a>
-            <a href="#certificates" className="hover:text-white">Certs</a>
-            <a href="#contact" className="hover:text-white">Contact</a>
+            {["Home", "About", "Skills", "Experience", "Projects", "Certificates", "Contact"].map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase() === "certificates" ? "certificates" : item.toLowerCase()}`}
+                className="hover:text-white transition"
+              >
+                {item}
+              </a>
+            ))}
           </div>
 
           <a
             href="https://drive.google.com/file/d/1iGT-5dTQN69ggTyxWIdt9l0pKwuY5E7m/view"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 border border-gray-600 rounded-full text-sm hover:bg-white hover:text-black transition"
+            className="px-5 py-2 rounded-full bg-white text-black text-sm font-semibold hover:scale-105 transition"
           >
             Resume
           </a>
         </div>
       </nav>
 
-      {/* Hero */}
-      <section id="home" className="min-h-screen flex items-center justify-center px-6 bg-black">
-        <div className="max-w-5xl text-center">
-          <p className="text-gray-400 mb-4">Hello, I am</p>
+      <section id="home" className="min-h-screen flex items-center justify-center px-6 pt-20">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          transition={{ duration: 0.8 }}
+          className="max-w-5xl text-center relative"
+        >
+          <div className="absolute -top-28 left-1/2 -translate-x-1/2 w-72 h-72 bg-blue-500/20 blur-3xl rounded-full" />
 
-          <h1 className="text-6xl md:text-8xl font-bold">
+          <p className="inline-block mb-5 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-gray-300 text-sm">
+            Available for internships & projects
+          </p>
+
+          <h1 className="text-6xl md:text-8xl font-black tracking-tight">
             Swastik Garg
           </h1>
 
-          <h2 className="mt-6 text-2xl md:text-4xl text-gray-300">
-            AI Developer | Web Developer
-          </h2>
+          <TypeAnimation
+            sequence={[
+              "AI Developer",
+              1500,
+              "Web Developer",
+              1500,
+              "Computer Vision Enthusiast",
+              1500,
+            ]}
+            wrapper="span"
+            speed={50}
+            repeat={Infinity}
+            className="text-2xl md:text-4xl text-blue-300 mt-6 block font-semibold"
+          />
 
-          <p className="mt-6 text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            I build AI-based and web-based projects using Python, TensorFlow,
-            React, Next.js, and modern development tools.
+          <p className="mt-6 text-gray-400 max-w-2xl mx-auto leading-relaxed text-lg">
+            Computer Science student building AI, web development, and real-world software projects using Python, TensorFlow, React, Next.js, and Tailwind CSS.
           </p>
 
           <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <a
-              href="#projects"
-              className="px-6 py-3 rounded-full bg-white text-black font-medium hover:bg-gray-200 transition"
-            >
+            <a href="#projects" className="px-7 py-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 font-semibold shadow-lg shadow-blue-500/25 hover:scale-105 transition">
               View Projects
             </a>
-
-            <a
-              href="#contact"
-              className="px-6 py-3 rounded-full border border-gray-600 hover:bg-gray-900 transition"
-            >
+            <a href="#contact" className="px-7 py-3 rounded-full border border-white/15 bg-white/5 hover:bg-white/10 transition">
               Hire Me
             </a>
           </div>
-        </div>
+        </motion.div>
       </section>
 
-      {/* About */}
-      <section id="about" className="min-h-screen flex items-center justify-center px-6 bg-neutral-950">
-        <div className="max-w-5xl">
-          <h2 className="text-5xl font-bold text-center mb-10">About Me</h2>
-
-          <div className="border border-gray-800 rounded-2xl p-8 bg-black shadow-lg">
+      <section id="about" className="py-28 px-6">
+        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.7 }} className="max-w-5xl mx-auto">
+          <SectionTitle title="About Me" />
+          <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md p-8 md:p-10 shadow-2xl">
             <p className="text-gray-300 text-lg leading-relaxed text-center">
-              I am a Computer Science student at SRM University with a strong
-              interest in Artificial Intelligence and Web Development. I enjoy
-              building real-world projects using Python, TensorFlow, and modern
-              web technologies.
+              I am a Computer Science student at SRM University with a strong interest in Artificial Intelligence and Web Development. I enjoy building real-world projects using Python, TensorFlow, and modern web technologies.
               <br /><br />
-              In the coming years, I aim to become a skilled Software Engineer
-              specializing in AI-driven applications, scalable systems, and
-              impactful real-world solutions.
+              My goal is to become a skilled Software Engineer who can build AI-driven applications, scalable systems, and practical solutions that solve real problems.
             </p>
           </div>
-        </div>
+        </motion.div>
       </section>
 
-      {/* Skills */}
-      <section id="skills" className="min-h-screen flex items-center justify-center px-6 bg-zinc-950">
-        <div className="max-w-6xl w-full">
-          <h2 className="text-5xl font-bold text-center mb-4">Tech Stack</h2>
-          <p className="text-gray-400 text-center mb-12">Tools I use to build and ship</p>
+      <section id="skills" className="py-28 px-6">
+        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.7 }} className="max-w-6xl mx-auto">
+          <SectionTitle title="Tech Stack" subtitle="Tools and technologies I use to build projects" />
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              ["Languages", ["Python", "Java", "C++"]],
-              ["Libraries", ["TensorFlow", "Keras", "OpenCV", "NumPy", "Matplotlib"]],
-              ["Concepts", ["CNN", "Machine Learning", "Computer Vision", "Image Processing"]],
-              ["Tools", ["Git", "VS Code", "PyCharm", "Google Colab"]],
-            ].map(([title, items]: any) => (
-              <div key={title} className="border border-gray-800 rounded-2xl p-6 bg-black hover:-translate-y-2 transition">
-                <h3 className="text-xl font-semibold mb-4">{title}</h3>
+            {skills.map(([title, items]) => (
+              <div key={title as string} className="group rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all duration-300 hover:-translate-y-3 hover:border-blue-400/50 hover:bg-white/10">
+                <h3 className="text-xl font-bold mb-5 group-hover:text-blue-300 transition">{title}</h3>
                 <div className="flex flex-wrap gap-2">
-                  {items.map((item: string) => (
-                    <span key={item} className="px-3 py-1 rounded-full border border-gray-700 text-gray-300 text-sm">
+                  {(items as string[]).map((item) => (
+                    <span key={item} className="px-3 py-1 rounded-full bg-black/40 border border-white/10 text-gray-300 text-sm">
                       {item}
                     </span>
                   ))}
@@ -111,231 +147,134 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </section>
 
-{/* Experience */}
-<section id="experience" className="min-h-screen flex items-center justify-center px-6 bg-neutral-950">
-  <div className="max-w-5xl w-full">
-    <h2 className="text-5xl font-bold text-center mb-12">Experience</h2>
+      <section id="experience" className="py-28 px-6">
+        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.7 }} className="max-w-5xl mx-auto">
+          <SectionTitle title="Experience" />
 
-    <div className="space-y-6">
+          <a
+            href="https://drive.google.com/file/d/1FrLgQYLp9oNN3MQ44iOqE3RH78Xt96xP/view"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-md transition-all duration-300 hover:-translate-y-3 hover:border-purple-400/50 hover:bg-white/10"
+          >
+            <h3 className="text-3xl font-bold">App Tester Intern</h3>
+            <p className="text-blue-300 mt-2">Boron Digital Pvt. Ltd. • 2024</p>
+            <ul className="mt-6 text-gray-300 list-disc list-inside space-y-3">
+              <li>Tested Android applications to identify bugs and performance issues.</li>
+              <li>Reported and documented issues to improve app reliability.</li>
+              <li>Worked with the team to enhance user experience and functionality.</li>
+            </ul>
+          </a>
+        </motion.div>
+      </section>
 
-      <a
-        href="https://drive.google.com/file/d/1FrLgQYLp9oNN3MQ44iOqE3RH78Xt96xP/view"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block border border-gray-800 rounded-2xl p-6 bg-black hover:bg-gray-950 transition"
-      >
-        <h3 className="text-2xl font-semibold">App Tester Intern</h3>
-        <p className="text-gray-400 mt-1">Boron Digital Pvt. Ltd. • 2024</p>
+      <section id="projects" className="py-28 px-6">
+        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.7 }} className="max-w-5xl mx-auto">
+          <SectionTitle title="Projects" subtitle="Selected AI and development projects" />
 
-        <ul className="mt-4 text-gray-300 list-disc list-inside space-y-2">
-          <li>Tested Android applications to identify bugs and performance issues.</li>
-          <li>Reported and documented issues to improve app reliability.</li>
-          <li>Worked with the team to enhance user experience and functionality.</li>
-        </ul>
-      </a>
+          <div className="relative border-l border-white/10 pl-8 space-y-12">
+            {[
+              {
+                title: "AI Fruit Classifier",
+                desc: "Built a CNN model using TensorFlow to classify multiple fruit categories with strong accuracy.",
+                tech: ["Python", "TensorFlow", "CNN"],
+                link: "https://github.com/swastikgarg11/fruit-image-classifier",
+              },
+              {
+                title: "Currency Note Detector",
+                desc: "Developed an AI-based system to detect Indian currency notes using image processing and computer vision.",
+                tech: ["Python", "OpenCV", "Image Processing"],
+                link: "https://github.com/swastikgarg11/currency-note-detector",
+              },
+            ].map((project) => (
+              <div className="relative" key={project.title}>
+                <span className="absolute -left-[39px] top-4 w-4 h-4 rounded-full bg-gradient-to-r from-blue-400 to-purple-500 shadow-lg shadow-blue-500/50" />
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-md transition-all duration-300 hover:-translate-y-3 hover:border-blue-400/50 hover:bg-white/10"
+                >
+                  <h3 className="text-2xl md:text-3xl font-bold">{project.title}</h3>
+                  <p className="text-gray-400 mt-4 leading-relaxed">{project.desc}</p>
 
-    </div>
-  </div>
-</section>
+                  <div className="flex flex-wrap gap-2 mt-5">
+                    {project.tech.map((t) => (
+                      <span key={t} className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20 text-sm">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
 
-    {/* Projects */}
-<section id="projects" className="min-h-screen flex items-center justify-center px-6 bg-zinc-950">
-  <div className="max-w-4xl w-full">
-    <h2 className="text-5xl font-bold text-center mb-16">Projects</h2>
-
-    <div className="relative border-l border-gray-800 space-y-16 pl-6">
-
-      <div className="relative">
-        <span className="absolute -left-3 top-2 w-3 h-3 bg-white rounded-full"></span>
-
-        <a
-          href="https://github.com/swastikgarg11/fruit-image-classifier"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block border border-gray-800 rounded-2xl p-8 bg-black hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(255,255,255,0.08)] transition"
-        >
-          <h3 className="text-2xl font-semibold">AI Fruit Classifier</h3>
-
-          <p className="text-gray-400 mt-4">
-            Built a Convolutional Neural Network using TensorFlow to classify multiple fruit categories with high accuracy.
-          </p>
-
-          <p className="text-sm text-gray-500 mt-4">
-            Tech: TensorFlow, Python, CNN
-          </p>
-
-          <div className="mt-6 flex gap-3">
-            <span className="px-4 py-2 rounded-full bg-white text-black text-sm font-medium">
-              View Code
-            </span>
-            <span className="px-4 py-2 rounded-full border border-gray-700 text-sm">
-              GitHub Repo
-            </span>
+                  <div className="mt-6">
+                    <span className="inline-block px-5 py-2 rounded-full bg-white text-black text-sm font-semibold">
+                      View GitHub →
+                    </span>
+                  </div>
+                </a>
+              </div>
+            ))}
           </div>
-        </a>
-      </div>
+        </motion.div>
+      </section>
 
-      <div className="relative">
-        <span className="absolute -left-3 top-2 w-3 h-3 bg-white rounded-full"></span>
+      <section id="certificates" className="py-28 px-6">
+        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.7 }} className="max-w-5xl mx-auto">
+          <SectionTitle title="Certifications" subtitle="Verified credentials and learning achievements" />
 
-        <a
-          href="https://github.com/swastikgarg11/currency-note-detector"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block border border-gray-800 rounded-2xl p-8 bg-black hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(255,255,255,0.08)] transition"
-        >
-          <h3 className="text-2xl font-semibold">Currency Note Detector</h3>
-
-          <p className="text-gray-400 mt-4">
-            Developed an AI-based system to detect Indian currency notes using image processing and computer vision techniques.
-          </p>
-
-          <p className="text-sm text-gray-500 mt-4">
-            Tech: OpenCV, Python, Image Processing
-          </p>
-
-          <div className="mt-6 flex gap-3">
-            <span className="px-4 py-2 rounded-full bg-white text-black text-sm font-medium">
-              View Code
-            </span>
-            <span className="px-4 py-2 rounded-full border border-gray-700 text-sm">
-              GitHub Repo
-            </span>
+          <div className="grid md:grid-cols-2 gap-6">
+            {certificates.map(([title, issuer, link]) => (
+              <a
+                key={title}
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all duration-300 hover:-translate-y-3 hover:border-purple-400/50 hover:bg-white/10"
+              >
+                <p className="text-sm text-purple-300 mb-3">Verified Credential</p>
+                <h3 className="text-xl font-bold group-hover:text-purple-300 transition">{title}</h3>
+                <p className="text-gray-400 mt-2">{issuer}</p>
+                <span className="inline-block mt-5 text-sm text-white">
+                  View Certificate →
+                </span>
+              </a>
+            ))}
           </div>
-        </a>
-      </div>
+        </motion.div>
+      </section>
 
-    </div>
-  </div>
-</section>
-
-{/* Certificates */}
-<section id="certificates" className="min-h-screen flex items-center justify-center px-6 bg-neutral-950">
-  <div className="max-w-4xl w-full">
-    <h2 className="text-5xl font-bold text-center mb-16">Certifications</h2>
-
-    <div className="relative border-l border-gray-800 space-y-16 pl-6">
-
-      <div className="relative">
-        <span className="absolute -left-3 top-2 w-3 h-3 bg-white rounded-full"></span>
-
-        <a
-          href="https://www.credly.com/badges/7f7144eb-dc45-42bb-af67-dde8142949ec/public_url"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block border border-gray-800 rounded-2xl p-6 bg-black hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(255,255,255,0.08)] transition"
-        >
-          <h3 className="text-xl font-semibold">SAP Generative AI</h3>
-          <p className="text-gray-400 mt-2">Issued by SAP • Verified Credential</p>
-
-          <div className="mt-5">
-            <span className="px-4 py-2 rounded-full bg-white text-black text-sm font-medium">
-              View Credential
-            </span>
-          </div>
-        </a>
-      </div>
-
-      <div className="relative">
-        <span className="absolute -left-3 top-2 w-3 h-3 bg-white rounded-full"></span>
-
-        <a
-          href="https://www.credly.com/badges/e3119213-7153-4c14-8a81-7a935be2b7e9/public_url"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block border border-gray-800 rounded-2xl p-6 bg-black hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(255,255,255,0.08)] transition"
-        >
-          <h3 className="text-xl font-semibold">SAP Data Analyst</h3>
-          <p className="text-gray-400 mt-2">Issued by SAP • Verified Credential</p>
-
-          <div className="mt-5">
-            <span className="px-4 py-2 rounded-full bg-white text-black text-sm font-medium">
-              View Credential
-            </span>
-          </div>
-        </a>
-      </div>
-
-      <div className="relative">
-        <span className="absolute -left-3 top-2 w-3 h-3 bg-white rounded-full"></span>
-
-        <a
-          href="https://www.credly.com/badges/ec1e81a4-9495-4011-a692-0df49fee4989"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block border border-gray-800 rounded-2xl p-6 bg-black hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(255,255,255,0.08)] transition"
-        >
-          <h3 className="text-xl font-semibold">AWS Generative AI</h3>
-          <p className="text-gray-400 mt-2">Issued by AWS • Verified Credential</p>
-
-          <div className="mt-5">
-            <span className="px-4 py-2 rounded-full bg-white text-black text-sm font-medium">
-              View Credential
-            </span>
-          </div>
-        </a>
-      </div>
-
-      <div className="relative">
-        <span className="absolute -left-3 top-2 w-3 h-3 bg-white rounded-full"></span>
-
-        <a
-          href="https://www.credly.com/badges/544c82c7-ab9a-4bd1-91c2-0a1bbd9817dd/public_url"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block border border-gray-800 rounded-2xl p-6 bg-black hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(255,255,255,0.08)] transition"
-        >
-          <h3 className="text-xl font-semibold">Cisco Networking Basics</h3>
-          <p className="text-gray-400 mt-2">Issued by Cisco • Verified Credential</p>
-
-          <div className="mt-5">
-            <span className="px-4 py-2 rounded-full bg-white text-black text-sm font-medium">
-              View Credential
-            </span>
-          </div>
-        </a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-      {/* Contact */}
-      <section id="contact" className="min-h-screen flex items-center justify-center px-6 bg-black">
-        <div className="max-w-6xl w-full">
-          <h2 className="text-5xl font-bold text-center mb-4">Get In Touch</h2>
-          <p className="text-gray-400 text-center mb-12">
-            Internships, collaborations, or project opportunities — my inbox is open.
-          </p>
+      <section id="contact" className="py-28 px-6">
+        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} transition={{ duration: 0.7 }} className="max-w-6xl mx-auto">
+          <SectionTitle title="Get In Touch" subtitle="Internships, collaborations, or project opportunities — my inbox is open." />
 
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-5">
-              <div className="border border-gray-800 rounded-xl p-5">
-                <p className="text-gray-500 text-sm">EMAIL</p>
-                <p className="text-white mt-1">gargswastik06@gmail.com</p>
-              </div>
+              {[
+                ["EMAIL", "gargswastik06@gmail.com"],
+                ["PHONE", "+91 9756018783"],
+              ].map(([label, value]) => (
+                <div key={label} className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-md">
+                  <p className="text-gray-500 text-sm">{label}</p>
+                  <p className="text-white mt-1">{value}</p>
+                </div>
+              ))}
 
-              <div className="border border-gray-800 rounded-xl p-5">
-                <p className="text-gray-500 text-sm">PHONE</p>
-                <p className="text-white mt-1">+91 9756018783</p>
-              </div>
-
-              <div className="border border-gray-800 rounded-xl p-5">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-md">
                 <p className="text-gray-500 text-sm">ONLINE</p>
                 <div className="flex gap-3 mt-3 flex-wrap">
-                  <a href="https://github.com/swastikgarg11" target="_blank" className="px-4 py-2 border border-gray-700 rounded-full">GitHub</a>
-                  <a href="https://www.linkedin.com/in/swastik-garg-110805s20" target="_blank" className="px-4 py-2 border border-gray-700 rounded-full">LinkedIn</a>
-                  <a href="https://www.hackerrank.com/profile/sg0320" target="_blank" className="px-4 py-2 border border-gray-700 rounded-full">HackerRank</a>
+                  <a href="https://github.com/swastikgarg11" target="_blank" rel="noopener noreferrer" className="px-4 py-2 border border-white/10 rounded-full hover:bg-white hover:text-black transition">GitHub</a>
+                  <a href="https://www.linkedin.com/in/swastik-garg-110805s20" target="_blank" rel="noopener noreferrer" className="px-4 py-2 border border-white/10 rounded-full hover:bg-white hover:text-black transition">LinkedIn</a>
+                  <a href="https://www.hackerrank.com/profile/sg0320" target="_blank" rel="noopener noreferrer" className="px-4 py-2 border border-white/10 rounded-full hover:bg-white hover:text-black transition">HackerRank</a>
                 </div>
               </div>
             </div>
 
-            <div className="border border-gray-800 rounded-2xl p-8 bg-neutral-950">
-              <h3 className="text-3xl font-semibold">Want to hire me?</h3>
-              <p className="text-gray-400 mt-4">
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-md">
+              <h3 className="text-3xl font-bold">Want to hire me?</h3>
+              <p className="text-gray-400 mt-4 leading-relaxed">
                 I am open to internships, AI projects, web development work, and collaborations.
               </p>
 
@@ -343,15 +282,14 @@ export default function Home() {
                 href="https://mail.google.com/mail/?view=cm&fs=1&to=gargswastik06@gmail.com&su=Hiring%20Opportunity%20for%20Swastik%20Garg"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-8 px-6 py-3 rounded-full bg-white text-black font-medium hover:bg-gray-200 transition"
+                className="inline-block mt-8 px-7 py-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 font-semibold shadow-lg shadow-blue-500/25 hover:scale-105 transition"
               >
                 Send Message
               </a>
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
-
     </main>
   );
 }
