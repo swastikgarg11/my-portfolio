@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Swastik Garg | Portfolio",
   description: "Personal portfolio of Swastik Garg",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
