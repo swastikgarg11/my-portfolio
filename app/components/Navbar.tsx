@@ -50,7 +50,7 @@ export default function Navbar() {
 
         {/* RESUME */}
         <a
-          href="https://drive.google.com"
+          href="https://drive.google.com/file/d/1iGT-5dTQN69ggTyxWIdt9l0pKwuY5E7m/view?usp=sharing"
           target="_blank"
           className="px-5 py-2 rounded-full bg-white text-black text-sm font-semibold hover:scale-105 transition"
         >
